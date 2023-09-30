@@ -16,7 +16,7 @@ suas configurações.
 Nessa foto da release 2.50 fique atento as versões do kernel, as cameras disponiveis, e a versão suportada do Ubuntu,mais para baixo, baixe o arquivo .zip da release
 ![image](https://github.com/julioGSabka/IEEE_OPEN_Tutorials/assets/99331176/2e68eafd-a868-4cea-baea-c505324f4129)
 
-* OBS: Caso não encontre uma versão com o kernel compativel, é possivel alterar a versão do kernel utilizada para botar o computador.
+* OBS: Caso não encontre uma versão com o kernel compativel, é possivel alterar a versão do kernel utilizada para bootar o computador.
 * Se o seu dispositivo for uma placa Nvidia Jetson, siga o tutorial para Jetson Nano (-link-)
 2. Instalação do SDK, para um tutorial mais detalhado veja: https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md
 
