@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name="x_robot" default="0.0"/>
+    <arg name="y_robot" default="0.0"/>
+    <arg name="yaw_robot" default="0.0"/>
+
+    
+    <node name="Arena_Limiter" pkg="strategy" type="map_limits.py" args="" output="screen">
+    </node>
+    
+
+    <include file="$(find open_navigation)/src/launch/move_base.launch"/>
+    <include file="$(find urdf_package)/launch/gazebo.launch">
+            <arg name="x" value="$(arg x_robot)"/>
+            <arg name="y" value="$(arg y_robot)"/>
+            <arg name="yaw" value="$(arg yaw_robot)"/>
+    </include>
+
+    <include file="$(find opencv_open)/launch/all_detectors.launch"/>
+    <!--<include file="$(find strategy)/launch/strategy.launch"/>-->
+
+</launch>
