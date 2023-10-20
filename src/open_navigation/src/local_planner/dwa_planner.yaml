@@ -1,0 +1,17 @@
+DWAPlannerROS:
+  max_vel_x: 0.5           # Velocidade linear máxima permitida
+  min_vel_x: 0.1           # Velocidade linear mínima permitida
+  max_vel_theta: 1.0       # Velocidade angular máxima permitida
+  min_vel_theta: -1.0      # Velocidade angular mínima permitida
+  acc_lim_x: 2.5           # Limite de aceleração linear
+  acc_lim_theta: 3.2       # Limite de aceleração angular
+  sim_time: 1.0            # Tempo de simulação para avaliação de trajetória
+  vx_samples: 6            # Número de amostras de velocidade linear
+  vtheta_samples: 20       # Número de amostras de velocidade angular
+  path_distance_bias: 0.6  # Ponderação da distância do caminho
+  goal_distance_bias: 0.8  # Ponderação da distância para a meta
+  occdist_scale: 0.02      # Escala de influência de obstáculos
+  forward_point_distance: 0.325  # Distância do ponto de frente
+  stop_time_buffer: 0.2    # Buffer de tempo para parar
+  oscillation_reset_dist: 0.05  # Distância de redefinição de oscilação
+  prune_plan: false         # Ativar a poda do plano

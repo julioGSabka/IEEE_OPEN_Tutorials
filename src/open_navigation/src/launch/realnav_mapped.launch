@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="model" default="$(find urdf_package)/urdf/real_robot.xacro"/>
+  <arg name="gui" default="true" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  
+  <node name="t265_to_base" pkg="tf" type="static_transform_publisher" args=" -0.1435 0 0 -1.57 0 0 /t265_pose_frame /base_link 4" required="true" /> 
+  <node name="t265_to_map" pkg="tf" type="static_transform_publisher" args=" 0 0 0 0 0 0 /map /map 4" required="true" /> 
+
+  <arg name="map_file" value="$(find open_navigation)/src/maps/maze_limited.yaml"/>
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)">
+    <!--
+    <param name="frame_id" value="t265_odom_frame" />
+    <remap from="/map" to="/custom_map" />
+    <remap from="/map_metadata" to="/custom_map_metadata" />
+    -->
+  </node>
+
+  <!--
+  <arg name="rvizconfig" default="$(find urdf_package)/rviz/urdf.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" /> 
+  -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find open_navigation)/src/costmaps/costmap_common.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find open_navigation)/src/costmaps/costmap_common.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find open_navigation)/src/costmaps/costmap_local.yaml" command="load" />
+    <rosparam file="$(find open_navigation)/src/costmaps/costmap_global.yaml" command="load" />
+    <param name="base_global_planner" value="navfn/NavfnROS"/>
+    <rosparam file="$(find open_navigation)/src/global_planner/global_planner.yaml" command="load" />
+    <param name="base_local_planner" value="neo_local_planner/NeoLocalPlanner"/>
+    <rosparam file="$(find open_navigation)/src/local_planner/neo_planner.yaml" command="load" />
+    <rosparam file="$(find open_navigation)/src/move_base/move_base.yaml" command="load" />
+  </node>
+
+</launch>

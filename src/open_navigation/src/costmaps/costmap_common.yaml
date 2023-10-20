@@ -1,0 +1,18 @@
+footprint: [[0.151,0.132],[-0.151,0.132],[-0.151,-0.132],[0.151,-0.132]]
+
+inflation_layer:
+  inflation_radius: 4
+  cost_scaling_factor: 3
+
+controller_patience: 2.0
+recovery_behavior_enabled: true
+robot_base_frame: base_link
+holonomic_robot: true
+
+conservative_clear: 
+    reset_distance: 3.00
+aggressive_clear:
+    reset_distance: 1.84
+    
+#observation_sources: dynamic_obstacles
+#  dynamic_obstacles: {data_type: ObstacleArrayMsg, topic: /dynamic_obstacles, expected_update_rate: 10.0}

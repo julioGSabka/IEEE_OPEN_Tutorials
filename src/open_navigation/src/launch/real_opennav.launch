@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+
+        <!---->
+        <node name="Arena_Limiter" pkg="strategy" type="map_limits.py" args="" output="screen">
+        </node>
+        <node name="base_finder" pkg="open_navigation" type="motor_drive.py" output="screen"/>
+
+        
+
+        <include file="$(find open_navigation)/src/launch/move_base.launch"/>
+        <include file="$(find urdf_package)/launch/real_apllication.launch"/>
+
+</launch>
