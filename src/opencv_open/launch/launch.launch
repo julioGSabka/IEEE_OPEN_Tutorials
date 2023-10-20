@@ -1,0 +1,19 @@
+<launch>
+
+    <node name="image_pub" pkg="opencv_open" type="webcam_pub" args="" output="screen">
+        </node>
+    
+    <node name="colors" pkg="opencv_open" type="webcam_sub" args="" output="screen">
+        </node>
+    <!--
+    <node name="aruco" pkg="opencv_open" type="webcam_sub_aruco" args="" output="screen">
+        </node>
+    --> 
+    <node name="aruquinho_dos_cria" pkg="opencv_open" type="aruquinho_dos_cria" args="" output="screen">
+        </node>
+    
+    <node name="cube_organizer" pkg="opencv_open" type="cubo_organizer.py" args="" output="screen">
+        </node>
+    <!---->
+
+</launch>

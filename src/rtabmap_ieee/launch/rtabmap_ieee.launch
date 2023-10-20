@@ -1,0 +1,28 @@
+<launch>
+    <param name="RGBD/SavedLocalizationIgnored" type="string" value="true"/>
+    <param name="/rtabmap/rtabmap/Rtabmap/DetectionRate" value="10.0"/>
+
+    <param name="/Vis/MaxDepth" type="string" value="4.0"/>
+
+    <arg name="use_rtabmapviz"            default="true"/>
+    <arg name="serial_no_camera1"    			default=""/>
+    <arg name="serial_no_camera2"    			default=""/>
+    
+    
+    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+        <arg name="rtabmap_args"        value="--delete_db_on_start"/>
+        <arg name="depth_topic"         value="/d400/aligned_depth_to_color/image_raw"/>
+        <arg name="frame_id"            value="d400_link"/>
+        <arg name="visual_odometry"     value="false"/>
+        <arg name="rgb_topic"           value="/d400/color/image_raw"/>
+        <arg name="camera_info_topic"   value="/d400/color/camera_info"/>
+        <arg name="queue_size"          value="100"/>
+        <arg name="rtabmapviz"          value="$(arg use_rtabmapviz)"/>
+        <arg name="odom_frame_id"       value="t265_odom_frame"/>
+        <arg name="localization"        value="false"/>
+        <arg name="map_frame_id"        value="map"/>
+        <arg name="approx_sync"         value="false"/>
+        <arg name="rviz"               value="false"/>
+    </include>
+    
+</launch>

@@ -1,0 +1,30 @@
+<launch>
+    <!-- no assumptions! -->
+    <param name="RGBD/SavedLocalizationIgnored" type="string" value="true"/>
+    <param name="RGBD/StartAtOrigin" type="string" value="true"/>
+
+    <param name="/rtabmap/rtabmap/Rtabmap/DetectionRate" value="0.5"/>
+
+    <arg name="rvizconfig" default="$(find rtabmap_ieee)/rviz/rtabmap_ieee.rviz" />
+    <arg name="camera1"              			default="t265"/>		<!-- Note: Replace with camera name -->
+    <arg name="camera2"              			default="d400"/>
+
+    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+        <arg name="rtabmap_args"       value=""/>
+        <arg name="rtabmapviz"         value="true"/>
+        <arg name="localization"       value="true"/>
+        <arg name="rviz"               value="false"/>
+        <arg name="frame_id"           value="d400_link"/>
+        <arg name="vo_frame_id"        value="t265_odom_frame"/>
+        <arg name="visual_odometry"    value="false"/>
+        <arg name="queue_size"         value="200"/>
+        <arg name="odom_frame_id"       value="t265_odom_frame"/>
+        
+        <arg name="depth_topic"        value="/$(arg camera2)/aligned_depth_to_color/image_raw"/>
+        <arg name="odom_topic"         value="/$(arg camera1)/odom/sample"/>
+        <arg name="rgb_topic"          value="/$(arg camera2)/color/image_raw"/>
+        <arg name="camera_info_topic"  value="/$(arg camera2)/color/camera_info"/>
+    </include>
+    
+</launch>
+
