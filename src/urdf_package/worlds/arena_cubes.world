@@ -1,0 +1,873 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <light name="sun" type="directional">
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name="arena">
+      <pose>0 0 0  0 0 0</pose>
+      <static>1</static>
+      <link name="body">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/arenaieee_collision.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/arenaieee.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <model name="cube20">
+      <pose>-0.713 0.394 0.03 0 0 0</pose>
+      <link name="cube20">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_20.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_20.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube8">
+      <pose>-0.244 0.394 0.03 0 0 0</pose>
+      <link name="cube8">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_8.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_8.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube10">
+      <pose>0.563 0.394 0.03 0 0 0</pose>
+      <link name="cube10">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_10.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_10.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube26">
+      <pose>-0.563 0.394 0.03 0 0 0</pose>
+      <link name="cube26">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_26.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_26.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube27">
+      <pose>-0.713 -0.075 0.03 0 0 0</pose>
+      <link name="cube27">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_27.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_27.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube15">
+      <pose>0.394 0.394 0.03 0 0 0</pose>
+      <link name="cube15">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_15.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_15.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube23">
+      <pose>0.713 0.394 0.03 0 0 0</pose>
+      <link name="cube23">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_23.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_23.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube19">
+      <pose>0.713 0.075 0.03 0 0 0</pose>
+      <link name="cube19">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_19.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_19.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube28">
+      <pose>-0.244 0.244 0.03 0 0 0</pose>
+      <link name="cube28">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_28.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_28.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube16">
+      <pose>-0.713 0.244 0.03 0 0 0</pose>
+      <link name="cube16">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_16.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_16.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube1">
+      <pose>0.713 0.244 0.03 0 0 0</pose>
+      <link name="cube1">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_1.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_1.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube3">
+      <pose>-0.563 0.075 0.03 0 0 0</pose>
+      <link name="cube3">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_3.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_3.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube25">
+      <pose>0.563 -0.075 0.03 0 0 0</pose>
+      <link name="cube25">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_25.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_25.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube6">
+      <pose>-0.713 0.075 0.03 0 0 0</pose>
+      <link name="cube6">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_6.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_6.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube11">
+      <pose>0.713 -0.075 0.03 0 0 0</pose>
+      <link name="cube11">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_11.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_11.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube2">
+      <pose>0.563 0.075 0.03 0 0 0</pose>
+      <link name="cube2">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_2.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube21">
+      <pose>-0.394 0.244 0.03 0 0 0</pose>
+      <link name="cube21">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_21.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_21.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube5">
+      <pose>0.563 0.244 0.03 0 0 0</pose>
+      <link name="cube5">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_5.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_5.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube14">
+      <pose>0.394 -0.075 0.03 0 0 0</pose>
+      <link name="cube14">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_14.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_14.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="cube24">
+      <pose>-0.394 0.075 0.03 0 0 0</pose>
+      <link name="cube24">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000036</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000036</iyy>
+            <iyz>0</iyz>
+            <izz>0.000036</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>/home/jetson/open_workspace/src/urdf_package/models/Cubo_24.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>//home/jetson/open_workspace/src/urdf_package/models/Cubo_24.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<robot name ="myrobot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- .XACRO principal do robô, descreve suas caracteristicas visuais (rodas, base, torre),
+  importa o include de inercia e o arquivo de especificações do gazebo -->
+
+  <xacro:include filename="include.xacro"/>
+  <xacro:include filename="openrobot.gazebo.xacro"/>
+
+  <xacro:property name="wheel_radius" value="0.048" />
+  <xacro:property name="wheel_length" value="0.038" />
+
+  <xacro:property name="rad90" value="${90*pi/180}" />
+
+  <!-- root link, on the ground just below the model origin -->
+  
+  <link name="base_footprint">
+   <visual>
+      <origin xyz="0 0 0" rpy="0 0 ${-rad90}" />
+      <geometry>
+        <box size="0.302 0.264 0" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0.0 0 0" rpy="0 0 ${-rad90}" />
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.206 0.264 0.048"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.048"/>
+      <material name="gray"/>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.206 0.264 0.048"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.048"/>
+    </collision>
+
+    <xacro:inertial_box mass="3.35" x="0.206" y="0.264" z="0.048">
+      <origin xyz="0 0 0.048" rpy="0 0 0"/>
+    </xacro:inertial_box>
+
+  </link>
+
+  <link name="whellFR">
+    <visual>
+      <geometry>
+        <cylinder radius="0.048" length="0.048"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 0"/>
+      <material name="black"/>   
+    </visual>
+
+    <collision>
+      <geometry>
+        <cylinder radius="0.048" length="0.048"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 0"/>
+    </collision>
+
+    <xacro:inertial_cylinder mass="0.207" length="${wheel_length}" radius="${wheel_radius}">
+      <origin xyz="0 0 0" rpy="0 1.57075 0"/>
+    </xacro:inertial_cylinder>
+  </link>
+
+  <joint name="base_to_FRwhell" type="fixed">
+    <parent link="base_link"/>
+    <child link="whellFR"/>
+    <origin xyz="0.127 0.084 0.048"/>
+  </joint>  
+
+  <link name="whellFL">
+    <visual>
+      <geometry>
+        <cylinder radius="0.048" length="0.048"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 0"/>
+      <material name="black"/>   
+    </visual>
+
+    <collision>
+      <geometry>
+        <cylinder radius="0.048" length="0.048"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 0"/>
+    </collision>
+
+    <xacro:inertial_cylinder mass="0.207" length="${wheel_length}" radius="${wheel_radius}">
+      <origin xyz="0 0 0" rpy="0 1.57075 0"/>
+    </xacro:inertial_cylinder>
+  </link>
+
+  <joint name="base_to_FLwhell" type="fixed">
+    <parent link="base_link"/>
+    <child link="whellFL"/>
+    <origin xyz="-0.127 0.084 0.048"/>
+  </joint>  
+
+  <link name="whellBR">
+    <visual>
+      <geometry>
+        <cylinder radius="0.048" length="0.048"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 0"/>
+      <material name="black"/>   
+    </visual>
+
+    <collision>
+      <geometry>
+        <cylinder radius="0.048" length="0.048"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 0"/>
+    </collision>
+
+    <xacro:inertial_cylinder mass="0.207" length="${wheel_length}" radius="${wheel_radius}">
+      <origin xyz="0 0 0" rpy="0 1.57075 0"/>
+    </xacro:inertial_cylinder>
+  </link>
+
+  <joint name="base_to_BRwhell" type="fixed">
+    <parent link="base_link"/>
+    <child link="whellBR"/>
+    <origin xyz="0.127 -0.084 0.048"/>
+  </joint>  
+
+  <link name="whellBL">
+    <visual>
+      <geometry>
+        <cylinder radius="0.048" length="0.048"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 0"/>
+      <material name="black"/>   
+    </visual>
+
+    <collision>
+      <geometry>
+        <cylinder radius="0.048" length="0.048"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 0"/>
+    </collision>
+
+    <xacro:inertial_cylinder mass="0.207" length="${wheel_length}" radius="${wheel_radius}">
+      <origin xyz="0 0 0" rpy="0 1.57075 0"/>
+    </xacro:inertial_cylinder>
+  </link>
+
+  <joint name="base_to_BLwhell" type="fixed">
+    <parent link="base_link"/>
+    <child link="whellBL"/>
+    <origin xyz="-0.127 -0.084 0.048"/>
+  </joint>  
+
+  <link name="tower">
+    <visual>
+      <geometry>
+        <box size="0.11 0.048 0.384"/>       
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.192"/>
+      <material name="gray"/>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.11 0.048 0.384"/> 
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.192"/>
+    </collision>
+
+    <xacro:inertial_box mass="0.506" x="0.11" y="0.048" z="0.384">
+      <origin xyz="0 0 0.192" rpy="0 0 0"/>
+    </xacro:inertial_box>
+
+  </link>
+
+  <joint name="base_to_tower" type="fixed">
+    <parent link="base_link"/>
+    <child link="tower"/>
+    <origin xyz="0 0.036 0.072"/>
+  </joint> 
+
+  <!-- link para o plugin de IMU-->
+  <link name="imu_link"/>
+  <!--  juntando com o base -->
+  <joint name="imu_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="imu_link"/>
+      <origin xyz="0 -0.22 0.25"/>
+  </joint>
+
+</robot>

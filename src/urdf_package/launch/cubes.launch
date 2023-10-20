@@ -1,0 +1,15 @@
+<launch>
+
+    <!-- CÓDIGO QUE RANDOMIZA OS CUBOS -->
+    <!-- Definir o node Python para randomizar os cubos -->
+    <node name="random_cubes_node" pkg="urdf_package" type="random_cubes.py" output="screen"/>
+
+    <!-- CÓDIGO QUE LANÇA ELES NA ARENA -->
+    <param name="robot_description"
+        command="$(find xacro)/xacro --inorder '$(find urdf_package)/urdf/cubes_configuration.xacro'" />
+
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-urdf -model cubes -param robot_description">
+    </node>
+
+</launch>
